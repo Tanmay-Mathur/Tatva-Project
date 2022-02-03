@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helperland | Upcoming Service</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/5602f8a8c9.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    
+    <!-- nav starts -->
+    <nav id="faqnav" class="navbar navbar-expand-lg upcomingService">
+            
+        <a href="home.html"><img src="img/white-logo-transparent-background.png" id="logo-faq"  alt=""></a>
+        <button style="color:white; margin-right: 15px;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto" id="faq-nav">
+            <div id="upcoming-menu-collapse">
+                <li class="nav-item">
+                    <a class="nav-link nav-padding" href="#">Dashbord</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link nav-padding" href="#">New Service Requests</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link nav-padding" href="#">Upcoming Service</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link nav-padding" href="#">Service Schedule</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link nav-padding" href="#">Service History</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link nav-padding" href="#">My Ratings</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link nav-padding" href="#">Block Customer</a>
+                  </li>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link nav-padding" href="#">Price & Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-padding" href="#">Warranty</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-padding" href="#">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-padding" href="#">Contact</a>
+              </li>
+            
+            <li class="nav-item">
+                <div id="upcoming-notification" >
+                    <a class="nav-link nav-padding upcoming-notify" href="#">
+                        <img src="img/upcomingService/icon-notification.png" alt="">
+                        <span id="notification-dot">3</span>
+                    </a>
+                    
+                </div>
+              
+            </li>
+            <li class="nav-item dropdown nav-padding" id="upcomingUser">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="img/upcomingService/user.png" alt="">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" >
+                    <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                  <li ><a class="dropdown-item" href="#" >Logout</a></li>
+                </ul>
+              </li>
+            
+          </ul>
+
+          </div>
+
+    </nav>
+  <!-- nav ends -->
+    
+  <!-- main starts -->
+    <main>
+        <!-- header starts -->
+        <section id="upcoming-header">
+            <h1>
+                <span>Welcome,</span> TANMAY!
+            </h1>
+        </section>
+        <!-- header ends -->
+
+        <!-- main section starts -->
+        <section>
+            <div id="upcoming-main">
+
+                <div id="upcoming-desktop-flex">
+                    <div id="upcoming-menu-desktop">
+                        <ul>
+                            <li>Dashbord</li>
+                            <li>New Service Requests</li>
+                            <li class="active">Upcoming Service</li>
+                            <li>Service Schedule</li>
+                            <li>Service History</li>
+                            <li>My Ratings</li>
+                            <li>Block Customer</li>
+                        </ul>
+
+                    </div>
+                    <div id="upcoming-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Service ID <span><img src="img/upcomingService/sort.png" alt=""></span>
+                                    </th>
+                                    <th>
+                                        Service Date <span><img src="img/upcomingService/sort.png" alt=""></span>
+                                    </th>
+                                    <th>
+                                        Customer Details <span><img src="img/upcomingService/sort.png" alt=""></span>
+                                    </th>
+                                    <th>
+                                        Distance <span><img src="img/upcomingService/sort.png" alt=""></span>
+                                    </th>
+                                    <th>
+                                        Actions
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        323436
+                                    </td>
+                                    <td>
+                                        <div><span><img src="img/upcomingService/calendar2.png" alt=""></span>
+                                        <span class="upcoming-date"><b>09/04/2018</b></span>
+                                        </div>
+                                        <div><span><img src="img/upcomingService/timer.png" alt=""></span> <span class="upcoming-time">12:00-18:00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>David Bough</div>
+                                        <div><span><img src="img/upcomingService/home.png" alt=""></span> <span class="upcoming-address">Mustrestrabe 5, 12345 Bonn</span> </div>
+                                    </td>
+                                    <td class="distance">
+                                        15 km
+                                    </td>
+                                    <td class="actions">
+                                        <a href="#">Cancel</a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        323436
+                                    </td>
+                                    <td>
+                                        <div><span><img src="img/upcomingService/calendar2.png" alt=""></span>
+                                        <span class="upcoming-date"><b>09/04/2018</b></span>
+                                        </div>
+                                        <div><span><img src="img/upcomingService/timer.png" alt=""></span> <span class="upcoming-time">12:00-18:00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>David Bough</div>
+                                        <div><span><img src="img/upcomingService/home.png" alt=""></span> <span class="upcoming-address">Mustrestrabe 5, 12345 Bonn</span> </div>
+                                    </td>
+                                    <td class="distance">
+                                        15 km
+                                    </td>
+                                    <td class="actions">
+                                        <a href="#">Cancel</a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        323436
+                                    </td>
+                                    <td>
+                                        <div><span><img src="img/upcomingService/calendar2.png" alt=""></span>
+                                        <span class="upcoming-date"><b>09/04/2018</b></span>
+                                        </div>
+                                        <div><span><img src="img/upcomingService/timer.png" alt=""></span> <span class="upcoming-time">12:00-18:00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>David Bough</div>
+                                        <div><span><img src="img/upcomingService/home.png" alt=""></span> <span class="upcoming-address">Mustrestrabe 5, 12345 Bonn</span> </div>
+                                    </td>
+                                    <td class="distance">
+                                        15 km
+                                    </td>
+                                    <td class="actions">
+                                        <a href="#">Cancel</a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        323436
+                                    </td>
+                                    <td>
+                                        <div><span><img src="img/upcomingService/calendar2.png" alt=""></span>
+                                        <span class="upcoming-date"><b>09/04/2018</b></span>
+                                        </div>
+                                        <div><span><img src="img/upcomingService/timer.png" alt=""></span> <span class="upcoming-time">12:00-18:00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>David Bough</div>
+                                        <div><span><img src="img/upcomingService/home.png" alt=""></span> <span class="upcoming-address">Mustrestrabe 5, 12345 Bonn</span> </div>
+                                    </td>
+                                    <td class="distance">
+                                        15 km
+                                    </td>
+                                    <td class="actions">
+                                        <a href="#">Cancel</a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        323436
+                                    </td>
+                                    <td>
+                                        <div><span><img src="img/upcomingService/calendar2.png" alt=""></span>
+                                        <span class="upcoming-date"><b>09/04/2018</b></span>
+                                        </div>
+                                        <div><span><img src="img/upcomingService/timer.png" alt=""></span> <span class="upcoming-time">12:00-18:00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>David Bough</div>
+                                        <div><span><img src="img/upcomingService/home.png" alt=""></span> <span class="upcoming-address">Mustrestrabe 5, 12345 Bonn</span> </div>
+                                    </td>
+                                    <td class="distance">
+                                        15 km
+                                    </td>
+                                    <td class="actions">
+                                        <a href="#">Cancel</a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        323436
+                                    </td>
+                                    <td>
+                                        <div><span><img src="img/upcomingService/calendar2.png" alt=""></span>
+                                        <span class="upcoming-date"><b>09/04/2018</b></span>
+                                        </div>
+                                        <div><span><img src="img/upcomingService/timer.png" alt=""></span> <span class="upcoming-time">12:00-18:00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>David Bough</div>
+                                        <div><span><img src="img/upcomingService/home.png" alt=""></span> <span class="upcoming-address">Mustrestrabe 5, 12345 Bonn</span> </div>
+                                    </td>
+                                    <td class="distance">
+                                        15 km
+                                    </td>
+                                    <td class="actions">
+                                        <a href="#">Cancel</a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        323436
+                                    </td>
+                                    <td>
+                                        <div><span><img src="img/upcomingService/calendar2.png" alt=""></span>
+                                        <span class="upcoming-date"><b>09/04/2018</b></span>
+                                        </div>
+                                        <div><span><img src="img/upcomingService/timer.png" alt=""></span> <span class="upcoming-time">12:00-18:00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>David Bough</div>
+                                        <div><span><img src="img/upcomingService/home.png" alt=""></span> <span class="upcoming-address">Mustrestrabe 5, 12345 Bonn</span> </div>
+                                    </td>
+                                    <td class="distance">
+                                        15 km
+                                    </td>
+                                    <td class="actions">
+                                        <a href="#">Cancel</a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        323436
+                                    </td>
+                                    <td>
+                                        <div><span><img src="img/upcomingService/calendar2.png" alt=""></span>
+                                        <span class="upcoming-date"><b>09/04/2018</b></span>
+                                        </div>
+                                        <div><span><img src="img/upcomingService/timer.png" alt=""></span> <span class="upcoming-time">12:00-18:00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>David Bough</div>
+                                        <div><span><img src="img/upcomingService/home.png" alt=""></span> <span class="upcoming-address">Mustrestrabe 5, 12345 Bonn</span> </div>
+                                    </td>
+                                    <td class="distance">
+                                        15 km
+                                    </td>
+                                    <td class="actions">
+                                        <a href="#">Cancel</a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        323436
+                                    </td>
+                                    <td>
+                                        <div><span><img src="img/upcomingService/calendar2.png" alt=""></span>
+                                        <span class="upcoming-date"><b>09/04/2018</b></span>
+                                        </div>
+                                        <div><span><img src="img/upcomingService/timer.png" alt=""></span> <span class="upcoming-time">12:00-18:00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>David Bough</div>
+                                        <div><span><img src="img/upcomingService/home.png" alt=""></span> <span class="upcoming-address">Mustrestrabe 5, 12345 Bonn</span> </div>
+                                    </td>
+                                    <td class="distance">
+                                        15 km
+                                    </td>
+                                    <td class="actions">
+                                        <a href="#">Cancel</a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        323436
+                                    </td>
+                                    <td>
+                                        <div><span><img src="img/upcomingService/calendar2.png" alt=""></span>
+                                        <span class="upcoming-date"><b>09/04/2018</b></span>
+                                        </div>
+                                        <div><span><img src="img/upcomingService/timer.png" alt=""></span> <span class="upcoming-time">12:00-18:00</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>David Bough</div>
+                                        <div><span><img src="img/upcomingService/home.png" alt=""></span> <span class="upcoming-address">Mustrestrabe 5, 12345 Bonn</span> </div>
+                                    </td>
+                                    <td class="distance">
+                                        15 km
+                                    </td>
+                                    <td class="actions">
+                                        <a href="#">Cancel</a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- main section ends -->
+
+    </main>
+    <!-- main ends -->
+
+
+    <!-- footer starts -->
+    <footer style="background-color: #111111;" id="faqfooter">
+      
+        <div class="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center py-3 footerborder" id="faq-footer">
+          <!-- logo starts -->
+          <div>
+            <a href="home.html"><img width="100px" src="img/white-logo-transparent-background.png" alt=""></a>
+          </div>
+          <!-- logo ends -->
+    
+          <!-- links starts -->
+          <div class="d-flex flex-column flex-md-row flex-nowrap flex-md-wrap text-center justify-content-center" style="color: white;" id="faq-footer-links" >
+            <a href="home.html">HOME</a>
+            <a  href="#">ABOUT</a>
+            <a  href="#">TESTIMONIALS</a>
+            <a  href="faq.html">FAQS</a>
+            <a  href="#">INSURRANCE POLICY</a>
+            <a  href="#">IMPRESSUM</a>
+          </div>
+          <!-- links ends -->
+    
+          <!-- fb insta starts -->
+          <div>
+            <a class="px-2" href="#"><i style="color: white;" class="fab fa-facebook-f"></i></a>
+    
+            <a class="px-2" href="#"><i style="color: white;" class="fab fa-instagram"></i></a>
+          </div>
+          <!-- fb insta ends -->
+        </div>
+        
+    
+        <!-- privacy policy starts -->
+        <div class="text-center mb-0 py-2" style="position:relative; color:#9BA0A3; background-color: #111111">
+          <p class="mb-0 py-2 d-inline" style="color: #9BA0A3;">&copy;2018 Helperland. All rights reserved.
+            <a href="#" style="color: #9BA0A3;">Terms and Conditions </a>|
+            <a href="#" style="color: #9BA0A3;"> Privacy Policy</a>
+          </p>
+        </div>
+        <!-- privacy policy ends -->
+    
+    </footer>
+    <!-- footer ends -->
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</body>
+</html>
