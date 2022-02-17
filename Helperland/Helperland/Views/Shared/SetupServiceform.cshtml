@@ -1,0 +1,20 @@
+﻿@model Helperland.ViewModels.SetupService
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<form  id="setupform" class="setupform">
+    <div id="form1">
+        <div class=" alert-warning alert-dismissible fade" id="postalcodeAlert" role="alert">
+            Service at that pincode is not available. 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <h4>Enter your postal code</h4>
+        <input type="text" asp-for="PostalCode" id="postalCode" placeholder="Postal Code" value=@TempData["PostalCode"]>
+        <span asp-validation-for="PostalCode" class="text-danger"></span>
+
+        <button type="button" onclick="postalSubmit()">Check Availibility</button>
+    </div>
+</form>
