@@ -1,0 +1,326 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<!--
+<button id="reschedulebtn" data-bs-toggle="modal" data-bs-target="#serviceRequestReschedule">Reschedule</button>
+    <button id="cancelbtn" data-bs-toggle="modal" data-bs-target="#serviceRequestCancelModal">cancel</button>
+
+    <button id="mySettingAddAddressBtn" data-bs-toggle="modal" data-bs-target="#mySettingAddAddressModal">add Address</button>
+    <button id="myRatingModalBtn" data-bs-toggle="modal" data-bs-target="#myRatingModal">Rating</button>
+
+    -->
+
+<button id="serviceReqdetailsbtn" data-bs-toggle="modal" data-bs-target="#serviceRequestDetailsModal" class="d-none">details</button>
+
+
+<button id="MySettingDeleteAddressModalBtn" data-bs-toggle="modal" data-bs-target="#MySettingDeleteAddressModal" class="d-none">delete</button>
+
+<!--Cancel Request-->
+<div class="modal" tabindex="-1" id="serviceRequestCancelModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Cancel Service Request</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="CancelRequestId" name="CancelRequestId" />
+                <p><label for="cancelReason">Why you want to cancel the service request?</label></p>
+                <textarea name="cancelReason" id="cancelReason" cols="30" rows="10"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn cancelBtn" id="CancelRequestBtn">Cancel Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Reschedule-->
+<div class="modal" tabindex="-1" id="serviceRequestReschedule">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Reschedule Service Request</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger d-none mt-3" id="scheduleServiceAlert" role="alert">
+                </div>
+
+                <p><label for="cancelReason">Select New Date & Time</label></p>
+                <input type="hidden" id="updateRequestId" name="updateRequestId" />
+                <input type="date" class="rescheduleInput" id="updateRequestDate">
+                <select name="time" id="rescheduleTime" class="rescheduleInput">
+                    <option value="8:00:00 AM">8:00 </option>
+                    <option value="8:30:00 AM">8:30 </option>
+                    <option value="9:00:00 AM">9:00 </option>
+                    <option value="9:30:00 AM">9:30 </option>
+                    <option value="10:00:00 AM">10:00 </option>
+                    <option value="10:30:00 AM">10:30 </option>
+                    <option value="11:00:00 AM">11:00 </option>
+                    <option value="11:30:00 AM">11:30 </option>
+                    <option value="12:00:00 PM">12:00 </option>
+                    <option value="12:30:00 PM">12:30 </option>
+                    <option value="1:00:00 PM">13:00 </option>
+                    <option value="1:30:00 PM">13:30 </option>
+                    <option value="2:00:00 PM">14:00 </option>
+                    <option value="2:30:00 PM">14:30 </option>
+                    <!--<option value="3:00">3:00 </option>
+        <option value="3:30">3:30 </option>
+        <option value="4:00">4:00 </option>
+        <option value="4:30">4:30 </option>
+        <option value="5:00">5:00 </option>
+        <option value="5:30">5:30 </option>
+        <option value="6:00">6:00 </option>
+        <option value="6:30">6:30 </option>
+        <option value="7:00">7:00 </option>
+        <option value="7:30">7:30 </option>
+        <option value="8:00">8:00 </option>-->
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn cancelBtn" id="updateServiceRequest">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Details-->
+<div class="modal" tabindex="-1" id="serviceRequestDetailsModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Service Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="main">
+                    <div>
+                        <h4 id="CDDetailsDateTime">05/10/2021 08:00 - 11:30</h4>
+                        <p><b>Duration: </b><span id="CDDetailsDuration"></span> hrs</p>
+                    </div>
+                    <div>
+                        <p><b>Service Id: </b><span id="CDDetailsId"></span></p>
+                        <div class="d-flex border border-0">
+                            <p><b>Extras: </b> </p>
+                            <div id="CDDetailsExtra" class="border border-0 p-0 ps-1"></div>
+                        </div>
+                        <p><b>Net Amount:</b><span class="amount" id="CDDetailsAmount">8750 &euro;</span></p>
+                    </div>
+                    <div>
+                        <p><b>Service Address: </b> <span class="customerModalServiceAddress" id="CDDetailsAddress"></span></p>
+                        <p><b>Billing Address: </b><span>Same as Service Address</span></p>
+                        <p><b>Phone: </b><span>+91</span><span class="customerModalPhone" id="CDDetailsPhone"></span></p>
+                        <p><b>Email: </b><span class="customerModalEmail" id="CDDetailsEmail"> </span></p>
+                    </div>
+                    <div>
+                        <p><b>Comments: </b><span class="customerModalComments" id="CDDetailsComment"></span></p>
+                        <!--<p><img src="" alt="" class="cusomerModalPetImg"> <span class="cusomerModalPet">I don't have pets at home.</span></p>-->
+                    </div>
+                </div>
+                <!-- service provider details -->
+                <div id="serviceProviderDetailsInModal" class="serviceProvidersDetails d-none">
+                    <div><h5>Service Provider Details</h5></div>
+                    <div class="customer-sh-SP">
+
+                        <div><span class="cap-span"><img id="ratingModalSPAvtar" src="/img/customer-serviceHistory/cap.png" class="cap" alt=""></span></div>
+                        <div class="sp-detail">
+                            <p class="SP-name" id="CDDetails_SPName">Lyum Watson</p>
+                            <div class="d-flex p-0">
+                                <div class="spStars spRatingDetailsModal p-0">
+
+                                    <span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span>
+                                </div>
+
+                                <div class="p-0"><span class="ms-2" id="CDDetailsRating"></span></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <p><span id="totalCompletedServices">15</span> Cleanings</p>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button id="modalRescheduleBtn" class="rescheduleBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#ffffff" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="128" y1="80" x2="128" y2="128" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="22"></line><line x1="169.6" y1="152" x2="128" y2="128" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="22"></line><polyline points="184.2 99.7 224.2 99.7 224.2 59.7" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="22"></polyline><path d="M190.2,190.2a88,88,0,1,1,0-124.4l34,33.9" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="22"></path></svg>
+                    Reschedule
+                </button>
+                <button type="button" id="modalCancelBtn" class="btn cancelBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#fff" viewBox="0 0 256 256"><rect width="18" height="18" fill="none"></rect><line x1="200" y1="56" x2="56" y2="200" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line><line x1="200" y1="200" x2="56" y2="56" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line></svg>
+                    Cancel
+                </button>
+                <button type="button" id="modalRateSPBtn" class="btn rescheduleBtn">Rate SP</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--add address-->
+<div class="modal" tabindex="-1" id="mySettingAddAddressModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="mySettingAddressModalTitle" class="modal-title">Add New Address</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger d-none mt-3" id="ms_addAddressAlert" role="alert">
+                </div>
+                <form action="">
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p>Street Name</p>
+                            <input type="text" id="ms_addAddr_street" placeholder="Street Name" class="form-control">
+                        </div>
+                        <div class="col-lg-6">
+                            <p>House number</p>
+                            <input type="text" id="ms_addAddr_house" placeholder="House Number" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p>Postal Code</p>
+                            <input type="text" placeholder="Postal Code" id="ms_addAddr_postal" class="form-control">
+                        </div>
+                        <div class="col-lg-6">
+                            <p>City</p>
+                            <input type="text" placeholder="City" id="ms_addAddr_city" class="form-control" disabled>
+
+                            <input type="hidden" id="ms_addAddr_state" name="state" placeholder="state"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 ">
+                            <p>Phone Number</p>
+                            <div class="input-group">
+                                <span class="input-group-text">+91</span>
+                                <input type="text" placeholder="Mobile Number" id="ms_addAddr_mobile" class="form-control">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button type="button" class="mySettingModalSubmitBtn" id="mySettingAddressModalSubmitBtn">Add</button>
+
+                    <button type="button" class="mySettingModalSubmitBtn d-none" id="mySettingAddressModalUpdateBtn">Update</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- ratings modal starts -->
+<div class="modal" tabindex="-1" id="myRatingModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="customer-sh-SP">
+                    <div><span class="cap-span" ><img id="ratingModalSPAvtar" src="/img/customer-serviceHistory/cap.png" class="cap" alt=""></span></div>
+                    <div class="sp-detail">
+                        <p class="SP-name" id="ratingModalSPName">Lyum Watson</p>
+                        <div class="d-flex">
+                            <div class="spStars spStarsRatingModal">
+
+                                <span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span>
+                            </div>
+
+                            <div><span class="ms-2" id="ratingModalSPStarts">4</span></div>
+                        </div>
+
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h4>Rate your service provider</h4>
+                <!-- on time starts -->
+                <div class="spSkills">
+                    <div><p>On Time Arrival</p></div>
+                    <div id="ratingModalOnTime" class="spRatings">
+                        <input value="5" type="radio" name="onTime">
+                        <input value="4.5" type="radio" name="onTime">
+                        <input value="4" type="radio" name="onTime">
+                        <input value="3.5" type="radio" name="onTime">
+                        <input value="3" type="radio" name="onTime">
+                        <input value="2.5" type="radio" name="onTime">
+                        <input value="2" type="radio" name="onTime">
+                        <input value="1.5" type="radio" name="onTime">
+                        <input value="1" type="radio" name="onTime">
+                        <input value="0.5" type="radio" name="onTime">
+                    </div>
+                </div>
+                <!-- on time ends -->
+                <!-- friendly starts -->
+                <div class="spSkills">
+                    <p>friendly</p>
+                    <div id="ratingModalFriendly" class="spRatings">
+                        <input value="5" type="radio" name="friendly">
+                        <input value="4.5" type="radio" name="friendly">
+                        <input value="4" type="radio" name="friendly">
+                        <input value="3.5" type="radio" name="friendly">
+                        <input value="3" type="radio" name="friendly">
+                        <input value="2.5" type="radio" name="friendly">
+                        <input value="2" type="radio" name="friendly">
+                        <input value="1.5" type="radio" name="friendly">
+                        <input value="1" type="radio" name="friendly">
+                        <input value="0.5" type="radio" name="friendly">
+                    </div>
+                </div>
+                <!-- friendly ends -->
+                <!-- Quality of Service starts -->
+                <div class="spSkills">
+                    <p>Quality of Service</p>
+                    <div id="ratingModalQuality" class="spRatings">
+                        <input value="5" type="radio" name="qualityService">
+                        <input value="4.5" type="radio" name="qualityService">
+                        <input value="4" type="radio" name="qualityService">
+                        <input value="3.5" type="radio" name="qualityService">
+                        <input value="3" type="radio" name="qualityService">
+                        <input value="2.5" type="radio" name="qualityService">
+                        <input value="2" type="radio" name="qualityService">
+                        <input value="1.5" type="radio" name="qualityService">
+                        <input value="1" type="radio" name="qualityService">
+                        <input value="0.5" type="radio" name="qualityService">
+                    </div>
+                </div>
+
+                <!-- quality of service ends -->
+
+                <div class="feedback">
+                    <h5>Feedback Service provider</h5>
+                    <textarea name="feedback" id="myRatingFeedback" cols="30" rows="10"></textarea>
+                </div>
+                <div>
+                    <button id="myRatingModalSubmit" type="button" >Submit</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- delete Address modal -->
+<div class="modal" tabindex="-1" id="MySettingDeleteAddressModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Delete Address</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure to Delete it??</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn cancelBtn" data-bs-dismiss="modal" id="MySettingDeleteAddress">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
