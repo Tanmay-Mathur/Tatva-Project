@@ -1,0 +1,203 @@
+﻿
+@{
+    ViewData["Title"] = "ServiceRequest";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helperland | Service Requests</title>
+
+    <script src="https://kit.fontawesome.com/5602f8a8c9.js" crossorigin="anonymous"></script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+    <link rel="stylesheet"
+          href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+          crossorigin="anonymous" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css" />
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- nav starts -->
+    <nav id="admin-nav">
+        <a href="#" id="admin-logo">helperland</a>
+        <div>
+            <ul>
+                <li><img src="/img/upcomingService/user.png" alt=""> <span>@TempData["name"]</span></li>
+                <li><a asp-controller="Signup" asp-action="Logout"><img src="/img/customer-serviceHistory/logout.png" alt=""></a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- nav ends -->
+    <!-- main starts -->
+    <main>
+        <!-- main section starts -->
+        <section id="admin-um-main-section">
+            <div id="admin-um-main-div">
+                <!-- admin-um menu starts -->
+                <div id="admin-um-main-menu">
+                    <ul>
+                        <li>
+                            Service Management
+                        </li>
+                        <li>
+                            Role Management
+                        </li>
+                        <li>
+                            Coupon Code Management
+                        </li>
+                        <li>
+                            Escalation Management
+                        </li>
+                        <li class="active" id="serviceReqTab">
+                            Service Requests
+                        </li>
+                        <li>
+                            Service Providers
+                        </li>
+                        <li id="userManagementTab">
+                            User Management
+                        </li>
+                        <li>
+                            Finance Module
+                        </li>
+                        <li>
+                            Zip Code Management
+                        </li>
+                        <li>
+                            Rating Management
+                        </li>
+                        <li>
+                            Inquiry Management
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- admin-um menu ends -->
+                <!--Service Request div-->
+                @await Html.PartialAsync("AdminServiceRequest")
+
+                <!--User management div-->
+                @await Html.PartialAsync("AdminUserManagement")
+
+
+            </div>
+
+            <!--Edit Service REquest modal-->
+            @await Html.PartialAsync("AdminEditModal")
+
+            @await Html.PartialAsync("LoadingAnimation")
+
+        </section>
+        <!-- main section ends -->
+    </main>
+    <!-- main ends -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/v/dt/dt-1.11.3/r-2.2.9/rg-1.1.4/datatables.min.js"></script>
+
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
+
+
+    <!--Admin service request js-->
+    <script src="~/js/adminServiceReq.js"></script>
+
+    <!--Admin service request js-->
+    <script src="~/js/AdminUserManagement.js"></script>
+
+    <script>
+    </script>
+
+    <script>
+        function admin_action() {
+            document.getElementById("admin-sr-action-menu").classList.toggle("showmenu");
+        }
+    </script>
+
+
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+
+
+    <script>
+        function html_table_to_excel(type) {
+            var data = document.getElementById('admin-um-table');
+
+            var file = XLSX.utils.table_to_book(data, { sheet: "sheet1" });
+
+            XLSX.write(file, { bookType: type, bookSST: true, type: 'base64' });
+
+            XLSX.writeFile(file, 'file.' + type);
+        }
+
+        const export_button = document.getElementById('export');
+
+        export_button.addEventListener('click', () => {
+            html_table_to_excel('xlsx');
+        });
+    </script>
+
+    <script>
+
+        function writefDate() {
+            document.getElementById("admin-sr-fdate").value = document.getElementById("admin-sr-fdatepicker").value;
+        }
+
+        function writetDate() {
+            document.getElementById("admin-sr-tdate").value = document.getElementById("admin-sr-tdatepicker").value;
+        }
+
+        function writemDate() {
+            document.getElementById("admin-sr-mdate").value = document.getElementById("admin-sr-mdatepicker").value;
+        }
+
+    </script>
+    <!--
+    <script>
+        var myModal = new bootstrap.Modal(document.getElementById('admin-sr-edit-modal'), options);
+    </script>
+        -->
+    <script>
+        var serviceReqTab = document.getElementById("serviceReqTab");
+        var userManagementTab = document.getElementById("userManagementTab");
+        var adminUserManagement = document.getElementById("adminUserManagement");
+        var adminServiceReq = document.getElementById("adminServiceReq");
+
+        serviceReqTab.addEventListener("click", function () {
+
+            adminServiceReq.classList.remove("d-none");
+            adminUserManagement.classList.add("d-none");
+
+            serviceReqTab.classList.add("active");
+            userManagementTab.classList.remove("active");
+
+        });
+        userManagementTab.addEventListener("click", function () {
+
+            adminServiceReq.classList.add("d-none");
+            adminUserManagement.classList.remove("d-none");
+
+            serviceReqTab.classList.remove("active");
+            userManagementTab.classList.add("active");
+
+        });
+
+
+    </script>
+
+</body>
+</html>
